@@ -1,6 +1,16 @@
 import express from 'express';
-import router from './routes/index.js';
+//Import 'cors' to allow CROSS ORIGIN transfers
+import cors from 'cors';
+import router from './routes/index.routes.js';
 
-export const app = express();
+const app = express();
 
-app.use('/api', router)
+app.use(express.json());
+
+app.use(cors());
+
+app.use(express.urlencoded({ extended: false }));
+
+app.use(router);
+
+export default app;

@@ -1,10 +1,7 @@
-import { app } from './app.js';
+import app from './app.js';
 // Init dotenv config to listen environtment variables
 import { config } from 'dotenv';
 config();
-//Import 'cors' to allow CROSS ORIGIN transfers
-import cors from 'cors';
-app.use(cors());
 
 //Set additional configs
 import constants from './config.js';
