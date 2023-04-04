@@ -11,6 +11,6 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(router);
+app.use('/api', router);
 
 export default app;
