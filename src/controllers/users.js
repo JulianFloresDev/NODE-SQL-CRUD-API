@@ -19,8 +19,8 @@ export const getUsers = async (req, res) => {
       });
     }
   } catch (error) {
-    return res.status(400).json({
-      message: `Something was wrong with the request: ${error}`,
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
       error: true,
     });
   }
@@ -48,8 +48,8 @@ export const getUsersByID = async (req, res) => {
       });
     }
   } catch (error) {
-    return res.status(400).json({
-      message: `Something was wrong with the request: ${error}`,
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
       error: true,
     });
   }
@@ -79,8 +79,8 @@ export const createNewUser = async (req, res) => {
       error: false,
     });
   } catch (error) {
-    return res.status(400).json({
-      message: `Something was wrong with the request: ${error}`,
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
       error: true,
     });
   }
@@ -102,8 +102,8 @@ export const deleteUser = async (req, res) => {
     }
     return res.sendStatus(204);
   } catch (error) {
-    return res.status(400).json({
-      message: `Something was wrong with the request: ${error}`,
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
       error: true,
     });
   }
@@ -135,7 +135,12 @@ export const editUserById = async (req, res) => {
       error: false,
       data: userUpdated,
     });
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
+      error: true,
+    });
+  }
 };
 
 export const dropUserById = async (req, res) => {
@@ -159,5 +164,10 @@ export const dropUserById = async (req, res) => {
       message: 'User has been droped from database.',
       error: false,
     });
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).json({
+      message: `Something goes wrong with the request: ${error}`,
+      error: true,
+    });
+  }
 };
