@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS SQLPractice;
 USE SQLPractice;
 
 CREATE TABLE IF NOT EXISTS `users` (
-    `id` INT NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENTAL,
     `name` VARCHAR(45) NULL,
     `email` VARCHAR(45) NULL,
     `password` VARCHAR(45) NULL,
